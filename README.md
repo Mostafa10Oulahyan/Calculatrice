@@ -1,2 +1,2 @@
 # Calculatrice
-A simple Calcolator
+A Simple Calculator With Design
