@@ -245,6 +245,7 @@ input[type="button"]:active {
 }
 body {
     background: url("/Img/math-zarpq292tmb3whun.jpg") center/cover no-repeat;
+    /* background: rgb(24, 24, 39); */
     min-height: 110vh;
     display: flex;
     flex-direction: column;
