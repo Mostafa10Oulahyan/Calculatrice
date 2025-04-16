@@ -108,5 +108,4 @@ const TOGGLE = () => {
     document.body.setAttribute("data-dark-mode", IS_PRESSED ? false : true);
     TOGGLE_BTN.setAttribute("aria-pressed", IS_PRESSED ? false : true);
 };
-
 TOGGLE_BTN.addEventListener("click", TOGGLE);
