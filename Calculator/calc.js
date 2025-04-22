@@ -12,7 +12,10 @@ let numbers=[zero,one,two,threee,four,five,six,seven,eight,nine]
 numbers.forEach(n=>{
     n.style.color='white'
 })
-
+let scientific=document.querySelectorAll(".sci")
+ scientific.forEach(sc=>{
+    sc.style.color="rgb(18, 129, 255)"
+})
 let per=document.getElementById("per")
 let divison=document.getElementById("divison")
 let sub=document.getElementById("sub")
@@ -83,7 +86,19 @@ document.querySelectorAll("input[type=button]").forEach(buttons => {
                     .replace("cos", "Math.cos")
                     .replace("sin", "Math.sin")
                     .replace("tan", "Math.tan")
-                    .replace("%","*0.01"))
+                    .replace("%","*0.01")
+                    .replace("ln","Math.log10")
+                    .replace("π","Math.PI") 
+                    .replace("e","Math.E")
+                    .replace("x²", "**2")
+                    .replace("xᵇ", "**")
+                    .replace("10ˣ", "10**")
+                    .replace(/eˣ(\d+)/g, "Math.exp($1)")
+                    .replace(/(\d+)!/g, "factorial($1)")
+                    // .replace("ln","Math.log(")
+                    // .replace("1/x", "1/"))
+            )
+
                 res.innerHTML = num
                 if (operation.innerHTML && res.innerHTML && res.innerHTML !== "Error") {
                     addToHistory(operation.innerHTML, res.innerHTML);
@@ -100,6 +115,35 @@ document.querySelectorAll("input[type=button]").forEach(buttons => {
         }
     })
 })
+function factorial(n) {
+    if (n < 0) {
+        res.innerHTML = "ERROR"
+        return;
+    }
+    let fa = 1;
+    for (let i = n; i >= 1; i--) {
+        fa *= i;
+    }
+
+    res.innerHTML = fa;
+    return fa
+}
+$('#arrow').on("click", function () {
+        $('#calculatrice').toggleClass("cal");
+        $('.sci').css({
+            "display":"block"
+        });   
+        if ($('#calculatrice').hasClass('cal')) {
+        $('#calculatrice').animate({ width: "700px" }, 1500);
+        $('#sc-Maths').fadeIn(1500);
+     } else {
+        $('#calculatrice').animate({ width: "400px" }, 500);
+        $('#sc-Maths').fadeOut(500);
+    }
+
+    $('#operation').html("");
+    $('#arrow').toggleClass("a");
+});
 //    JS  TOogle HHHHHh
 const TOGGLE_BTN = document.getElementById("toggleBtn");
 
